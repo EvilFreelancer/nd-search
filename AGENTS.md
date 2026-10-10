@@ -67,17 +67,15 @@ and the dead-proxy bypass. CI repeats it on Linux, macOS and Windows.
 `.cursor-plugin/plugin.json` and `.codex-plugin/plugin.json`, and the `description` the same in the
 three manifests (the CI lint job checks both). Bump it on every change that should reach users.
 
-Every release is mirrored into the [rpa-skills](https://github.com/EvilFreelancer/rpa-skills)
-catalog (plugin `version` and `description` in `.claude-plugin/marketplace.json`, `description` in
-`.agents/plugins/marketplace.json`, catalog `metadata.version` patch-bumped in both, the README row
-when the description changed). The catalog follows, never leads: release here first.
+The skill is not listed in the rpa-skills catalog; users install it by cloning this repository.
+A copy of `scripts/nd_search.py` lives in the NeuralDeep hub repository as
+`.agents/skills/web-search-nd/nd_search.py`: change the client here first, then copy it there.
 
 ## Commit checklist
 
 - [ ] `python3 -m unittest discover -s tests` green locally, CI green on all three systems.
 - [ ] SKILL.md, README and the script agree on commands, flags, fields and exit codes.
 - [ ] `version` bumped and identical everywhere; `description` consistent.
-- [ ] Release mirrored into rpa-skills.
+- [ ] The copy of the client in the NeuralDeep hub repository updated when the script changed.
 - [ ] Conventional commit message, e.g. `feat(nd-search): ...` / `fix(nd-search): ...`.
 
-Part of the **[rpa-skills](https://github.com/EvilFreelancer/rpa-skills)** collection.

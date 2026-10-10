@@ -36,22 +36,17 @@ proxy variables from the environment and talks to the API directly.
 Exit codes: `0` success, `2` bad arguments or no key, `3` request rejected (400, 404, 413, 415, 422),
 `4` quota used up (429), `5` access denied (401, 402, 403), `6` platform or network failure.
 
-Every NeuralDeep plan except the API-only Coder includes search, the free one too, with a quota of its own that does not touch the
-LLM limits. Endpoints, fields, errors and quota rules are described in `SKILL.md` and in the
-[NeuralDeep docs](https://neuraldeep.ru/docs#search).
+Every NeuralDeep plan except the API-only Coder includes search, the free one too, with a quota of
+its own that does not touch the LLM limits. Endpoints, fields, errors and quota rules are described
+in `SKILL.md` and in the [NeuralDeep docs](https://neuraldeep.ru/docs#search).
 
 ## Install
 
-This skill is distributed through the **rpa-skills** catalog (a Claude Code plugin marketplace), and also installs as a plain **skill folder** (Cursor, OpenAI Codex, Kimi Code CLI, and others).
+The repository is the skill folder: `SKILL.md` lives at its root. Clone it into the skill root of your agent:
 
-**As a plugin (Claude Code)**: add the catalog once, then install this skill from it:
-
-```text
-/plugin marketplace add EvilFreelancer/rpa-skills
-/plugin install nd-search@rpa-skills
+```bash
+git clone https://github.com/EvilFreelancer/nd-search.git ~/.claude/skills/nd-search
 ```
-
-**As a plain skill folder**: copy or symlink this repository into a skill root (its `SKILL.md` lives at the repo root):
 
 | Tool          | Path                          |
 |---------------|-------------------------------|
@@ -60,7 +55,7 @@ This skill is distributed through the **rpa-skills** catalog (a Claude Code plug
 | OpenAI Codex  | `~/.codex/skills/nd-search/`  |
 | Kimi Code CLI | `~/.kimi/skills/nd-search/`   |
 
-The directory name must match the `name` field in `SKILL.md`.
+The directory name must match the `name` field in `SKILL.md`. To update, run `git pull` in that folder.
 
 ## How to invoke
 
@@ -71,6 +66,6 @@ The directory name must match the `name` field in `SKILL.md`.
 
 ## Source & attribution
 
-Part of **[rpa-skills](https://github.com/EvilFreelancer/rpa-skills)**, [Pavel Rykov](https://t.me/evilfreelancer)'s agent-skills collection (see [notes on vibe coding](https://t.me/evilfreelancer/1485) and the prompt collection [cursor-vibe-prompts](https://github.com/EvilFreelancer/cursor-vibe-prompts)).
+Written by [Pavel Rykov](https://t.me/evilfreelancer).
 
 Licensed under the MIT License, see [LICENSE](LICENSE).
