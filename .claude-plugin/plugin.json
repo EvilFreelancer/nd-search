@@ -1,0 +1,23 @@
+{
+  "name": "nd-search",
+  "description": "Search the web, read the clean text of a page by URL, crawl a few pages of one site and search Telegram channels through the NeuralDeep Search API with an sk- key. A standard-library Python client takes the key from --api-key or NEURALDEEP_API_KEY, prints compact text or the raw JSON and exits with meaningful codes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Pavel Rykov",
+    "email": "paul@drteam.rocks",
+    "url": "https://t.me/evilfreelancer"
+  },
+  "homepage": "https://github.com/EvilFreelancer/nd-search",
+  "repository": "https://github.com/EvilFreelancer/nd-search",
+  "license": "MIT",
+  "keywords": [
+    "web-search",
+    "web-extract",
+    "crawl",
+    "reader",
+    "telegram",
+    "neuraldeep",
+    "search-api",
+    "agent-skill"
+  ]
+}

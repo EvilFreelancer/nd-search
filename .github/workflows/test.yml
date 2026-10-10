@@ -1,0 +1,46 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.x"]
+        include:
+          - os: ubuntu-22.04
+            python: "3.8"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit tests (client against a local stub of the API)
+        run: python -m unittest discover -s tests -v
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: manifests agree on name, version and description
+        run: |
+          python3 - <<'PY'
+          import json, re
+          docs = {p: json.load(open(p)) for p in (".claude-plugin/plugin.json", ".codex-plugin/plugin.json",
+                                                  ".cursor-plugin/plugin.json")}
+          front = open("SKILL.md", encoding="utf-8").read().split("---")[1]
+          version = re.search(r"^\s+version:\s*(\S+)", front, re.M).group(1)
+          name = re.search(r"^name:\s*(\S+)", front, re.M).group(1)
+          assert {d["version"] for d in docs.values()} == {version}, (version, docs)
+          assert {d["name"] for d in docs.values()} == {name} == {"nd-search"}
+          assert len({d["description"] for d in docs.values()}) == 1
+          assert "category" not in docs[".claude-plugin/plugin.json"]
+          print("manifests ok:", version)
+          PY
