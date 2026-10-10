@@ -9,6 +9,8 @@ The skill gives the agent a workflow (search, then read the picked links, crawl 
 and a small client, `scripts/nd_search.py`, that turns each call into one command with compact output
 and meaningful exit codes.
 
+Part of the [rpa-skills](https://github.com/EvilFreelancer/rpa-skills) collection of agent skills.
+
 ## Files
 
 | File | Purpose |
@@ -63,11 +65,11 @@ coddy skills sync
 
 | Tool          | Path                          |
 |---------------|-------------------------------|
+| Coddy         | `~/.coddy/skills/nd-search/`  |
 | Claude Code   | `~/.claude/skills/nd-search/` |
 | Cursor        | `~/.cursor/skills/nd-search/` |
 | OpenAI Codex  | `~/.codex/skills/nd-search/`  |
 | Kimi Code CLI | `~/.kimi/skills/nd-search/`   |
-| Coddy         | `~/.coddy/skills/nd-search/`  |
 
 The directory name must match the `name` field in `SKILL.md`.
 
