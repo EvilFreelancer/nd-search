@@ -8,7 +8,7 @@ script, the tests or any plugin manifest.
 ## Repository layout
 
 The skill is packaged for **Claude Code**, **Codex** and **Cursor**, and installs as a plain skill
-folder for any other agent. The layout is flat: `SKILL.md` and its assets live at the repo root and
+folder for any other agent; **Coddy** installs it from the `rpa-skills` catalog, which Coddy has built in. The layout is flat: `SKILL.md` and its assets live at the repo root and
 the plugin manifests point their skill source at `./`.
 
 ```
