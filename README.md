@@ -42,11 +42,16 @@ in `SKILL.md` and in the [NeuralDeep docs](https://neuraldeep.ru/docs#search).
 
 ## Install
 
-The repository is the skill folder: `SKILL.md` lives at its root. Clone it into the skill root of your agent:
+This skill is distributed through the **rpa-skills** catalog (a Claude Code plugin marketplace), and also installs as a plain **skill folder** (Cursor, OpenAI Codex, Kimi Code CLI, and others).
 
-```bash
-git clone https://github.com/EvilFreelancer/nd-search.git ~/.claude/skills/nd-search
+**As a plugin (Claude Code)**: add the catalog once, then install this skill from it:
+
+```text
+/plugin marketplace add EvilFreelancer/rpa-skills
+/plugin install nd-search@rpa-skills
 ```
+
+**As a plain skill folder**: copy or symlink this repository into a skill root (its `SKILL.md` lives at the repo root):
 
 | Tool          | Path                          |
 |---------------|-------------------------------|
@@ -55,7 +60,7 @@ git clone https://github.com/EvilFreelancer/nd-search.git ~/.claude/skills/nd-se
 | OpenAI Codex  | `~/.codex/skills/nd-search/`  |
 | Kimi Code CLI | `~/.kimi/skills/nd-search/`   |
 
-The directory name must match the `name` field in `SKILL.md`. To update, run `git pull` in that folder.
+The directory name must match the `name` field in `SKILL.md`.
 
 ## How to invoke
 
@@ -66,6 +71,6 @@ The directory name must match the `name` field in `SKILL.md`. To update, run `gi
 
 ## Source & attribution
 
-Written by [Pavel Rykov](https://t.me/evilfreelancer).
+Part of **[rpa-skills](https://github.com/EvilFreelancer/rpa-skills)**, [Pavel Rykov](https://t.me/evilfreelancer)'s agent-skills collection (see [notes on vibe coding](https://t.me/evilfreelancer/1485) and the prompt collection [cursor-vibe-prompts](https://github.com/EvilFreelancer/cursor-vibe-prompts)).
 
 Licensed under the MIT License, see [LICENSE](LICENSE).
